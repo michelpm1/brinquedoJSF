@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html
+
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<title>Consulta Por Tipo</title>
+<ui:include src="header.xhtml">  
+</ui:include>
+
+
+<body>
+
+	<container>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="col-md-12" id="search-box">
+		
+				<br></br>
+
+				<h:form name="input" method="post">
+			
+					<h:outputLabel value="Material"/>
+				    <h:selectOneMenu value="#{brinquedo.tipo}" class="brinquedo-type form-control">
+				    <f:selectItem itemValue="1" itemLabel="montagem"/>
+				    <f:selectItem itemValue="2" itemLabel="automato"/>
+				    <f:selectItem itemValue="3" itemLabel="eletronico"/>
+				    <f:selectItem itemValue="4" itemLabel="minicomputador"/>
+				  	</h:selectOneMenu>
+				  	<br></br>
+					<h:commandButton id="re" value="consultar" action="#{brinquedo.consultarTipo}" class="btn btn-primary" />
+				</h:form>
+			</div>
+			
+		<div id="showAlert">Nenhum filho encontrado</div>
+		<div id="showAlert1">Filho(s) localizados!</div>
+		</div>
+		<div class="panels-css col-md-6 col-md-offset-1">
+
+
+<div id="panel1">
+<div id="" class="caption">Montagem:</div>	
+<table id="table">
+	<tr class="header-row row">
+    <td class="cell primary">Nome</td>
+    <td class="cell">Idade</td>
+     <td class="cell">Material</td>
+    <td class="cell">Peças</td>
+</tr>
+
+  <tr class="row">
+  <ui:repeat value="#{brinquedo.auxMontagem}" var="montagem">
+  <tr class="row">
+    <td class="cell primary">#{montagem.nome}</td>
+    <td class="cell">#{montagem.idade}</td>
+     <td class="cell">#{montagem.material}</td>
+     <td class="cell">#{montagem.pecas}</td>
+  </tr>
+     </ui:repeat>
+	</tr>
+
+</table>
+</div>
+<div id="panel2">
+<div id="" class="caption">Automatos:</div>	
+<table id="table">
+	<tr class="header-row row">
+    <td class="cell primary">Nome</td>
+    <td class="cell">Idade</td>
+     <td class="cell">Material</td>
+    <td class="cell">Energia</td>
+</tr>
+  <ui:repeat value="#{brinquedo.auxAutomato}" var="automato">
+  <tr class="row">
+    <td class="cell primary">#{automato.nome}</td>
+    <td class="cell">#{automato.idade}</td>
+     <td class="cell">#{automato.material}</td>
+     <td class="cell">#{automato.energia}</td>
+	</tr>
+</ui:repeat>
+</table>
+</div>
+<div id="panel3">
+<div id="" class="caption">Eletrônicos:</div>	
+<table id="table">
+	<tr class="header-row row">
+    <td class="cell primary">Nome</td>
+    <td class="cell">Idade</td>
+     <td class="cell">Material</td>
+    <td class="cell">Características</td>
+    <td class="cell">Pilhas</td>
+</tr>
+  <ui:repeat value="#{brinquedo.auxEletronico}" var="eletronico">
+  <tr class="row">
+    <td class="cell primary">#{eletronico.nome}</td>
+    <td class="cell">#{eletronico.idade}</td>
+     <td class="cell">#{eletronico.material}</td>
+     <td class="cell">#{eletronico.caracteristica}</td>
+     <td class="cell">#{eletronico.pilhas}</td>
+	</tr>
+</ui:repeat>
+</table>
+</div>
+<div id="panel4">
+<div id="" class="caption">Minicomputadores:</div>	
+<table id="table">
+	<tr class="header-row row">
+    <td class="cell primary">Nome</td>
+    <td class="cell">Idade</td>
+     <td class="cell">Material</td>
+    <td class="cell">Funções</td>
+</tr>
+  <ui:repeat value="#{brinquedo.auxMinicomputador}" var="minicomputador">
+  <tr class="row">
+    <td class="cell primary">#{minicomputador.nome}</td>
+    <td class="cell">#{minicomputador.idade}</td>
+     <td class="cell">#{minicomputador.material}</td>
+     <td class="cell">#{minicomputador.funcoes}</td>
+	</tr>
+</ui:repeat>
+</table>
+</div>
+		</div>
+	
+	</div>
+	</container>
+</body>
+<script type="text/javascript">
+if(#{brinquedo.panel}==1){
+	$('#panel1').fadeIn();
+    $('#panel2').fadeOut();
+    $('#panel3').fadeOut();
+    $('#panel4').fadeOut();
+}
+else if(#{brinquedo.panel}==2){
+	  $('#panel2').fadeIn();
+      $('#panel3').fadeOut();
+      $('#panel4').fadeOut();
+      $('#panel1').fadeOut();
+}
+else if(#{brinquedo.panel}==3){
+	 $('#panel1').fadeOut();
+     $('#panel2').fadeOut();
+     $('#panel4').fadeOut();
+     $('#panel3').fadeIn();
+}
+
+else if(#{brinquedo.panel}==4){
+	$('#panel1').fadeOut();
+	$('#panel2').fadeOut();
+	$('#panel3').fadeOut();
+	$('#panel4').fadeIn();
+}
+$('.brinquedo-type').change(function () {
+	if ($('.brinquedo-type option:selected').val() == "1"){
+        $('#panel1').fadeIn();
+        $('#panel2').fadeOut();
+        $('#panel3').fadeOut();
+        $('#panel4').fadeOut();
+        }
+	if ($('.brinquedo-type option:selected').val() == "2"){
+        $('#panel2').fadeIn();
+        $('#panel3').fadeOut();
+        $('#panel4').fadeOut();
+        $('#panel1').fadeOut();
+        }
+	if ($('.brinquedo-type option:selected').val() == "3"){
+        
+        $('#panel1').fadeOut();
+        $('#panel2').fadeOut();
+        $('#panel4').fadeOut();
+        $('#panel3').fadeIn();
+        }
+    if($('.brinquedo-type option:selected').val() == "4"){
+	
+       
+    	$('#panel1').fadeOut();
+    	$('#panel2').fadeOut();
+    	$('#panel3').fadeOut();
+    	$('#panel4').fadeIn();
+    }
+});
+
+</script>
+</html>

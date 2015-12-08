@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+    <ui:composition>
+<ui:include src="header.xhtml"></ui:include>
+    <h:head>
+        <title>Secured welcome page</title>
+    </h:head>
+    <h:body>
+        <h:form class="col-md-4 col-md-offset-4">
+            <h3>Welcome #{loginBean.username}</h3>
+            <br/>
+            <h:outputText value="Você está dentro do sistema pode realizar consultas e cadastros"/>
+            <br/>
+            <h:commandLink action="#{loginBean.doLogout}" value="Logout"/>
+        </h:form>
+    </h:body>
+    </ui:composition>
+</html>

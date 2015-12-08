@@ -1,0 +1,166 @@
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:include src="header.xhtml">  
+</ui:include>
+<title>Cadastrar Brinquedo</title>
+
+<h:body>
+<h:form>
+   <div class="form-group col-xs-4 col-xs-offset-4">
+  <label>Selecione o tipo do Brinquedo</label>
+  <select class="form-control" id="brinquedo-type">
+    <option value="1">Montagem</option>
+    <option value="2">Automato</option>
+    <option value="3">Minicomputador</option>
+    <option value="4">Eletrônico</option>
+  </select>
+</div>
+</h:form>
+        <br></br>
+        <br></br>
+   <h:form id="panel1">
+	<h:panelGrid columns="2" border="1"
+   cellpadding="10" cellspacing="1" class="col-xs-4 col-xs-offset-4">
+      <f:facet name="header">
+         <h:outputText value="Cadastrar Brinquedo"/>
+      </f:facet>
+      <h:outputLabel value="Nome do brinquedo"/>
+      <h:inputText  value="#{montagem.nome}" class="form-control"/>
+      <h:outputLabel value="idade Mínima"/>
+      <h:inputText value="#{montagem.idade}" class="form-control" />
+      <h:outputLabel value="Material"/>
+      <h:selectOneMenu value="#{montagem.material}" class="form-control">
+    <f:selectItem itemValue="1" itemLabel="papel"/>
+    <f:selectItem itemValue="2" itemLabel="madeira"/>
+    <f:selectItem itemValue="3" itemLabel="metal"/>
+  	  </h:selectOneMenu>
+  	  <h:outputLabel value="Número de peças"/>
+  	  <h:inputText  value="#{montagem.pecas}" class="form-control"/>
+      <f:facet name="footer">
+         <h:panelGroup style="display:block; text-align:center">
+             <h:commandButton id="re" value="cadastrar" action="#{montagem.cadastrarMontagem}" class="btn btn-primary form-control" />
+         </h:panelGroup>
+      </f:facet>
+	</h:panelGrid>	
+   </h:form>
+	   <h:form id="panel2">
+	<h:panelGrid columns="2" border="1"
+   cellpadding="10" cellspacing="1" class="col-xs-4 col-xs-offset-4">
+      <f:facet name="header">
+         <h:outputText value="Cadastrar Brinquedo"/>
+      </f:facet>
+      <h:outputLabel value="Nome do brinquedo"/>
+      <h:inputText  value="#{automato.nome}" class="form-control"/>
+      <h:outputLabel value="Idade mínima"/>
+      <h:inputText value="#{automato.idade}" class="form-control"/>
+      <h:outputLabel value="Material"/>
+	  <h:selectOneMenu value="#{automato.material}" class="form-control" >
+    <f:selectItem itemValue="1" itemLabel="papel"/>
+    <f:selectItem itemValue="2" itemLabel="madeira"/>
+    <f:selectItem itemValue="3" itemLabel="metal"/>
+  	  </h:selectOneMenu>
+      <h:outputLabel value="Energia (1-corda ou 2-pilha)"/>
+      <h:inputText value="#{automato.energia}" class="form-control"/>
+      <f:facet name="footer">
+         <h:panelGroup style="display:block; text-align:center">
+            <h:commandButton id="ra" value="cadastrar" action="#{automato.cadastrarAutomato}" class="btn btn-primary form-control"/>
+         </h:panelGroup>
+      </f:facet>
+	</h:panelGrid>
+	</h:form>
+   <h:form id="panel3">
+	<h:panelGrid columns="2" border="1"
+   cellpadding="10" cellspacing="1" class="col-xs-4 col-xs-offset-4">
+      <f:facet name="header">
+         <h:outputText value="Cadastrar Brinquedo"/>
+      </f:facet>
+      <h:outputLabel value="Nome do brinquedo"/>
+      <h:inputText value="#{minicomputador.nome}" class="form-control" />
+      <h:outputLabel value="Idade Mínima" />
+      <h:inputText value="#{minicomputador.idade}" class="form-control"/>
+      <h:outputLabel value="Material" />
+      <h:selectOneMenu class="form-control" value="#{minicomputador.material}">
+    <f:selectItem itemValue="1" itemLabel="papel"/>
+    <f:selectItem itemValue="2" itemLabel="madeira"/>
+    <f:selectItem itemValue="3" itemLabel="metal"/>
+  	  </h:selectOneMenu>
+      <h:outputLabel value="Funções" />
+      <h:inputText value="#{minicomputador.funcoes}" class="form-control"/>
+      <f:facet name="footer">
+         <h:panelGroup style="display:block; text-align:center">
+            <h:commandButton id="ru" action="#{minicomputador.cadastrarMinicomputador}" value="cadastrar" class="btn btn-primary form-control"/>
+         </h:panelGroup>
+      </f:facet>
+	</h:panelGrid>
+   </h:form>
+   <h:form id="panel4">
+	<h:panelGrid columns="2" border="1"
+   cellpadding="20" cellspacing="3" class="col-xs-4 col-xs-offset-4">
+      <f:facet name="header">
+         <h:outputText value="Cadastrar Brinquedo"/>
+      </f:facet>
+      <h:outputLabel value="Nome do brinquedo"/>
+      <h:inputText  value="#{eletronico.nome}" class="form-control"/>
+      <h:outputLabel value="Idade Mínima" />
+      <h:inputText value="#{eletronico.idade}" class="form-control"/>
+      <h:outputLabel value="Material" />
+     <h:selectOneMenu value="#{eletronico.material}" class="form-control">
+    <f:selectItem itemValue="1" itemLabel="papel"/>
+    <f:selectItem itemValue="2" itemLabel="madeira"/>
+    <f:selectItem itemValue="3" itemLabel="metal"/>
+  	  </h:selectOneMenu>
+      <h:outputLabel class="" value="Pilhas" />
+      <h:inputText value="#{eletronico.pilhas}" class="form-control"/>
+      <h:outputLabel class="" value="Caracteristicas" />
+      <h:inputText value="#{eletronico.caract}" class="form-control"/>
+      <f:facet name="footer" class="">
+         <h:panelGroup style="display:block; text-align:center">
+            <h:commandButton id="cadastrar" value="cadastrar" action="#{eletronico.cadastrarEletronico}" class="btn btn-primary form-control" />
+         </h:panelGroup>
+      </f:facet>
+	</h:panelGrid>
+   </h:form>
+</h:body>
+<ui:include src="footer.xhtml">  
+</ui:include>
+
+<script type="text/javascript">
+$('#brinquedo-type').change(function () {
+	if ($('#brinquedo-type option:selected').val() == "1"){
+        $('#panel1').fadeIn();
+        $('#panel2').fadeOut();
+        $('#panel3').fadeOut();
+        $('#panel4').fadeOut();
+        }
+	if ($('#brinquedo-type option:selected').val() == "2"){
+        $('#panel2').fadeIn();
+        $('#panel3').fadeOut();
+        $('#panel4').fadeOut();
+        $('#panel1').fadeOut();
+        }
+	if ($('#brinquedo-type option:selected').val() == "3"){
+        
+        $('#panel1').fadeOut();
+        $('#panel2').fadeOut();
+        $('#panel4').fadeOut();
+        $('#panel3').fadeIn();
+        }
+    if($('#brinquedo-type option:selected').val() == "4"){
+	
+       
+    	$('#panel1').fadeOut();
+    	$('#panel2').fadeOut();
+    	$('#panel3').fadeOut();
+    	$('#panel4').fadeIn();
+    }
+});
+</script>
+</html>
+
+
+

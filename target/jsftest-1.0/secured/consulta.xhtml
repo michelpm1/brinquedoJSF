@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html
+
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<title>MediUni Consulta</title>
+<ui:include src="header.xhtml">  
+</ui:include>
+
+
+<body>
+
+	<container>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="col-md-12" id="search-box">
+		
+				<br></br>
+
+				<h:form name="input" method="post">
+					<h:outputLabel value="Nome do brinquedo"/>
+     				 <h:inputText  value="#{brinquedo.nome}" class="form-control"></h:inputText>
+     				 <h1>
+					<h:commandButton id="re" value="consultar" action="#{brinquedo.consultaNome}" class="btn btn-primary" />
+					</h1>
+				</h:form>
+			</div>
+		<div id="showAlert">Nenhum filho encontrado</div>
+		<div id="showAlert1">Filho(s) localizados!</div>
+		</div>
+		<div class="col-md-6 col-md-offset-1">
+
+
+
+<div id="table-css" class="caption">Brinquedo:</div>	
+<table id="table">
+	<tr class="header-row row">
+    <td class="cell primary">Nome</td>
+    <td class="cell">Idade</td>
+     <td class="cell">Material</td>
+    <td class="cell">Funções</td>
+    <td class="cell">Energia</td>
+    <td class="cell">Características</td>
+    <td class="cell">Pilhas</td>
+    <td class="cell">Peças</td>
+</tr>
+
+  <tr class="row">
+    <td class="cell primary">#{brinquedo.nome}</td>
+    <td class="cell">#{brinquedo.idade}</td>
+     <td class="cell">#{brinquedo.material}</td>
+     <td class="cell">#{brinquedo.funcoes}</td>
+     <td class="cell">#{brinquedo.energia}</td>
+     <td class="cell">#{brinquedo.caract}</td>
+     <td class="cell">#{brinquedo.pilha}</td>
+     <td class="cell">#{brinquedo.pecas}</td>
+	</tr>
+
+</table>
+
+		</div>
+	
+	</div>
+	</container>
+</body>
+
+</html>

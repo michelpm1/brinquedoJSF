@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition 
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style type="text/css">
+        @font-face {
+            font-family: 'Glyphicons Halflings';
+            src: url('/fonts/glyphicons-halflings-regular.eot');
+        }
+ </style>
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<script src="js/jquery-2.1.4.min.js"></script>
+  
+	<meta http-equiv="Content-Type" content="text/html; charset= UTF-8"/>
+</h:head>
+<header id="header">
+<div class="bs-example bs-navbar-top-example" id="nav-header" data-example-id="navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top">
+      <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-8" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand text-center home-css-size" href="secured/welcome.xhtml"><i class="glyphicon glyphicon-home home-css"></i></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
+          <ul class="nav navbar-nav">
+            <li class="menu-text"><a href="secured/cadastro.xhtml">Cadastrar Brinquedo</a></li>
+            <li class="menu-text"><a href="secured/consulta.xhtml">Consultar por Nome</a></li>
+            <li class="menu-text"><a href="secured/consulta_tipo.xhtml">Consultar por Tipo</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+    </nav>
+  </div>
+</header>
+</ui:composition>

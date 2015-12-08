@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"htth://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">  
+  <ui:composition>
+<ui:include src="header.xhtml"></ui:include>
+     
+    <h:body>
+        <div class="row">
+        <div class="col-md-12">
+        <h:form id="login-form" class="col-md-4 col-md-offset-4">
+           <h:outputText value="username:"/>
+           <h:inputText class="form-control" value="#{loginBean.username}" id="username"/>
+           <br/>
+           <h:outputText value="password:"/>
+           <h:inputSecret class="form-control" value="#{loginBean.password}" id="password"/>
+           <br/>
+           <h:commandButton class="btn btn-primary form-control" id="button" value="Login" action="#{loginBean.doLogin}"/>
+           <br/>
+           <h:commandLink action="#{navigationBean.redirectToInfo}" value="Recuperar senha"/>
+           <br/>
+           <h:messages />
+           <br/>
+        </h:form>
+        </div>
+   	</div>
+    </h:body>
+    </ui:composition>
+     
+</html>
+

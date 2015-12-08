@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+org.jboss.tools.openshift.ApplicationId=565f9d420c1e667753000104
+org.jboss.tools.openshift.ApplicationName=jsftests
+org.jboss.tools.openshift.Connection=https\://michelpm1%40gmail.com@
+org.jboss.tools.openshift.DeployFolder=webapps
+org.jboss.tools.openshift.Domain=javatest123
+org.jboss.tools.openshift.RemoteName=openshift
